@@ -55,12 +55,10 @@ namespace PDFCompress
 
         static void printHelp()
         {
-            Console.WriteLine(@"
-PDF Compress
-This utility requires you to have ghostscript and bash installed.
-Build from source: dotnet build
-Usage: ./pdf-compress [directory containing pdfs]
-            ");
+            Console.WriteLine("PDF Compress");
+            Console.WriteLine("This utility requires you to have ghostscript and bash installed.");
+            Console.WriteLine("Build from source: dotnet build");
+            Console.WriteLine("Usage: ./pdf-compress [directory containing pdfs]");
         }
     }
 }
