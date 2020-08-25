@@ -3,6 +3,7 @@ using System.IO;
 using System.Collections.Generic;
 
 using HeyRed.Mime;
+using ByteSizeLib;
 
 namespace PDFCompress
 {
@@ -35,8 +36,13 @@ namespace PDFCompress
             foreach (string file in files) {
                 FileInfo fileInformation = new FileInfo(file);
                 string mimeType = MimeTypesMap.GetMimeType(file);
+                ByteSize fileSize = ByteSize.FromBytes(fileInformation.Length);
 
-                if (fileInformation.Extension == ".pdf" && mimeType == "application/pdf") {
+                if (
+                    fileInformation.Extension == ".pdf" &&
+                    mimeType == "application/pdf" &&
+                    fileSize.MegaBytes > 1
+                ) {
                     pdfs.Add(file);
                 }
             }
